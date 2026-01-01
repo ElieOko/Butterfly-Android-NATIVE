@@ -1,4 +1,4 @@
-package elieoko.me.butterfly.ui.theme
+package elieoko.me.butterfly.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
