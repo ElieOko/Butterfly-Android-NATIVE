@@ -1,4 +1,4 @@
-package elieoko.me.butterfly.core.connectivity
+package elieoko.me.butterfly.core.network.connectivity
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.flow.*

@@ -1,4 +1,4 @@
-package elieoko.me.butterfly.core.connectivity
+package elieoko.me.butterfly.core.network.connectivity
 
 import kotlinx.coroutines.flow.Flow
 
