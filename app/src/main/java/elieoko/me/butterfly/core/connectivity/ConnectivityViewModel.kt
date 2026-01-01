@@ -1,4 +1,4 @@
-package elieoko.me.butterfly.domain.connectivity
+package elieoko.me.butterfly.core.connectivity
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.flow.*

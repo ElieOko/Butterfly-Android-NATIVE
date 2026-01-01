@@ -1,4 +1,4 @@
-package elieoko.me.butterfly.domain.connectivity
+package elieoko.me.butterfly.core.connectivity
 
 import android.content.Context
 import android.net.*
