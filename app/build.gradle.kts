@@ -59,7 +59,7 @@ dependencies {
     //constraint-layout
     implementation(libs.androidx.constraintlayout.compose)
     //navigation
-    implementation(libs.androidx.navigation.compose)
+
     //gson
     implementation(libs.gson)
     // datastore

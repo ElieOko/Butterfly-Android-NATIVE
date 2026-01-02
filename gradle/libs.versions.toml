@@ -20,7 +20,7 @@ kotlinxCoroutinesPlayServices = "1.10.2"
 lifecycleExtensions = "2.2.0"
 lifecycleRuntimeKtxVersion = "2.10.0"
 # navigation
-navigationCompose = "2.9.6"
+
 # constraint-layout
 constraintlayoutCompose = "1.1.1"
 # ktor
@@ -73,7 +73,7 @@ firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 # navigation
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
 # constraint-layout
 androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 # corroutine
