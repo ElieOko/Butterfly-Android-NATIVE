@@ -1,12 +1,12 @@
-import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
+//import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.gms.google-services")
+//    id("com.google.gms.google-services")
     id("com.google.devtools.ksp")
-    id("com.google.firebase.crashlytics")
+//    id("com.google.firebase.crashlytics")
     // Optional, provides the @Serialize annotation for autogeneration of Serializers.
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
@@ -35,10 +35,9 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    
 //    kotlinOptions {
 //        jvmTarget = "11"
 //        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2.toString()
@@ -47,7 +46,9 @@ android {
         compose = true
     }
 }
-
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -66,6 +67,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.androidx.material3.adaptive.navigation3)
     implementation(libs.kotlinx.serialization.core)
+    //icon
+    implementation(libs.androidx.material.icons.extended)
     //gson
     implementation(libs.gson)
     // datastore
@@ -100,8 +103,8 @@ dependencies {
     // Accompanist Permissions
     implementation(libs.accompanist.permissions)
     //firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
+    //implementation(platform(libs.firebase.bom))
+   // implementation(libs.firebase.analytics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
