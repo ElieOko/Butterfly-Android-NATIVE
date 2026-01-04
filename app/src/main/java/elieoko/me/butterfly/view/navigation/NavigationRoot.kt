@@ -6,6 +6,15 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import androidx.navigation3.runtime.*
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
+import elieoko.me.butterfly.app.home.application.ui.Home
+import elieoko.me.butterfly.app.meditation.application.ui.Meditation
+import elieoko.me.butterfly.app.meditation.application.ui.MeditationDetail
+import elieoko.me.butterfly.app.note.application.ui.Note
+import elieoko.me.butterfly.app.note.application.ui.NoteDetail
+import elieoko.me.butterfly.app.prayer.application.ui.Prayer
+import elieoko.me.butterfly.app.prayer.application.ui.PrayerDetail
+import elieoko.me.butterfly.app.style.application.ui.Style
+import elieoko.me.butterfly.app.style.application.ui.StyleDetail
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 
@@ -43,6 +52,7 @@ fun NavigationRoot(
             when(key) {
                 is Route.Home -> {
                     NavEntry(key) {
+                        Home(it)
 //                        TodoListScreen(
 //                            onTodoClick = {
 //                                backStack.add(Route.TodoDetail(it))
@@ -52,19 +62,20 @@ fun NavigationRoot(
                 }
                 is Route.Note -> {
                     NavEntry(key) {
+                        Note(it)
 //                        TodoDetailScreen(
 //                            todo = key.todo
 //                        )
                     }
                 }
                 is Route.NoteEditor ->{ NavEntry(key){}}
-                is Route.NoteDetail ->{ NavEntry(key){}}
-                is Route.Prayer ->{ NavEntry(key){}}
-                is Route.PrayerDetail ->{ NavEntry(key){}}
-                is Route.Meditation ->{ NavEntry(key){}}
-                is Route.MeditationDetail ->{ NavEntry(key){}}
-                is Route.Style ->{ NavEntry(key){}}
-                is Route.StyleDetail ->{ NavEntry(key){}}
+                is Route.NoteDetail ->{ NavEntry(key){ NoteDetail(it) }}
+                is Route.Prayer ->{ NavEntry(key){ Prayer(it) }}
+                is Route.PrayerDetail ->{ NavEntry(key){ PrayerDetail(it) }}
+                is Route.Meditation ->{ NavEntry(key){ Meditation(it) }}
+                is Route.MeditationDetail ->{ NavEntry(key){ MeditationDetail(it) }}
+                is Route.Style ->{ NavEntry(key){ Style(it) }}
+                is Route.StyleDetail ->{ NavEntry(key){ StyleDetail(it) }}
                 else -> error("Unknown NavKey: $key")
             }
         }
