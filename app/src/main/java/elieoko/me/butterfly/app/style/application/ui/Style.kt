@@ -2,9 +2,10 @@ package elieoko.me.butterfly.app.style.application.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun Style(){
+fun Style(key: NavKey) {
     StyleBody()
 }
 
@@ -16,5 +17,5 @@ fun StyleBody(){
 @Composable
 @Preview(showBackground = true)
 fun StylePreview(){
-    Style()
+    Style(it)
 }

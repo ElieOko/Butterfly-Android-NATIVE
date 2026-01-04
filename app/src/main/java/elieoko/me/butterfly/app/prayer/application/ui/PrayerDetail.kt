@@ -2,9 +2,10 @@ package elieoko.me.butterfly.app.prayer.application.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun PrayerDetail(){
+fun PrayerDetail(key: NavKey) {
     PrayerDetailBody()
 }
 
@@ -16,5 +17,5 @@ fun PrayerDetailBody(){
 @Composable
 @Preview(showBackground = true)
 fun PrayerDetailPreview(){
-    PrayerDetail()
+    PrayerDetail(it)
 }

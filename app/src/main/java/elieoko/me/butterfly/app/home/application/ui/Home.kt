@@ -4,10 +4,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavKey
 
 
 @Composable
-fun Home(){
+fun Home(key: NavKey) {
     HomeBody()
 }
 
@@ -26,5 +27,5 @@ fun HomeBody(){
 @Composable
 @Preview(showBackground = true)
 fun HomePreview(){
-    Home()
+    Home(it)
 }
