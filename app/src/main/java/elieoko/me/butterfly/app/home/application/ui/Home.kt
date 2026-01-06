@@ -8,24 +8,19 @@ import androidx.navigation3.runtime.NavKey
 
 
 @Composable
-fun Home(key: NavKey) {
+fun Home(key: NavKey?) {
     HomeBody()
 }
 
 @Composable
 fun HomeBody(){
     Column {
-        Row {
 
-        }
-        Row {
-
-        }
     }
 }
 
 @Composable
 @Preview(showBackground = true)
 fun HomePreview(){
-    Home(it)
+    Home(null)
 }

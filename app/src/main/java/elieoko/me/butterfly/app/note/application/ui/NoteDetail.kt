@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun NoteDetail(key: NavKey) {
+fun NoteDetail(key: NavKey?) {
     NoteDetailBody()
 }
 
@@ -17,5 +17,5 @@ fun NoteDetailBody(){
 @Composable
 @Preview(showBackground = true)
 fun NoteDetailPreview(){
-    NoteDetail(it)
+    NoteDetail(null)
 }

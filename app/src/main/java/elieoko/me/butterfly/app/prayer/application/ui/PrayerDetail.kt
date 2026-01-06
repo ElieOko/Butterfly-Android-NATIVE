@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun PrayerDetail(key: NavKey) {
+fun PrayerDetail(key: NavKey?) {
     PrayerDetailBody()
 }
 
@@ -17,5 +17,5 @@ fun PrayerDetailBody(){
 @Composable
 @Preview(showBackground = true)
 fun PrayerDetailPreview(){
-    PrayerDetail(it)
+    PrayerDetail(null)
 }

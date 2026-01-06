@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun Meditation(key: NavKey) {
+fun Meditation(key: NavKey?) {
     MeditationBody()
 }
 
@@ -17,5 +17,5 @@ fun MeditationBody(){
 @Composable
 @Preview(showBackground = true)
 fun MeditationPreview(){
-    Meditation(it)
+    Meditation(null)
 }

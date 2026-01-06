@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun StyleDetail(key: NavKey) {
+fun StyleDetail(key: NavKey?) {
     StyleDetailBody()
 }
 
@@ -17,5 +17,5 @@ fun StyleDetailBody(){
 @Composable
 @Preview(showBackground = true)
 fun StyleDetailPreview(){
-    StyleDetail(it)
+    StyleDetail(null)
 }
