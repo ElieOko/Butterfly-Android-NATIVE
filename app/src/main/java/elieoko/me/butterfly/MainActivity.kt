@@ -9,22 +9,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import elieoko.me.butterfly.core.network.connectivity.AndroidConnectivityObserver
-import elieoko.me.butterfly.core.network.connectivity.ConnectivityViewModel
+import elieoko.me.butterfly.core.network.connectivity.*
+import elieoko.me.butterfly.core.store.relational.room.viewmodel.*
 import elieoko.me.butterfly.core.ui.theme.ButterflyTheme
 import elieoko.me.butterfly.view.navigation.NavigationRoot
 
 class MainActivity : ComponentActivity() {
+    private val versionBibleViewModel: VersionBibleVM by viewModels {
+        VersionBibleVMFactory((application as ButterflyApp).versionBibleRepository)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             val connectivityViewModel = viewModel<ConnectivityViewModel> {
-                ConnectivityViewModel(
-                    connectivityObserver = AndroidConnectivityObserver(
-                        context = applicationContext
-                    )
-                )
+                ConnectivityViewModel(connectivityObserver = AndroidConnectivityObserver(context = applicationContext))
             }
             val isConnected by connectivityViewModel.isConnected.collectAsStateWithLifecycle()
             ButterflyTheme {
