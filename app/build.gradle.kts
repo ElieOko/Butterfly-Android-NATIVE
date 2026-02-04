@@ -2,29 +2,49 @@
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+ //   alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 //    id("com.google.gms.google-services")
     id("com.google.devtools.ksp")
 //    id("com.google.firebase.crashlytics")
-    // Optional, provides the @Serialize annotation for autogeneration of Serializers.
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
     namespace = "elieoko.me.butterfly"
-    compileSdk = 36
-
+    compileSdk  { version = release(36) }
     defaultConfig {
         applicationId = "elieoko.me.butterfly"
-        minSdk = 25
-        targetSdk = 36
+        minSdk { version = release(25) }
+        targetSdk { version = release(36) }
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas"
+                )
+            }
+        }
+    }
+    sourceSets.named("debug") {
+        java.directories += mutableSetOf(
+            "build/generated/ksp/debug/kotlin",
+            "build/generated/ksp/debug/java"
+        )
     }
 
+    sourceSets.named("release") {
+        java.directories +=mutableSetOf(
+            "build/generated/ksp/release/kotlin",
+            "build/generated/ksp/release/java"
+        )
+    }
+
+    sourceSets.named("main") {
+        java.directories += mutableSetOf("additionalSourceDirectory/kotlin")
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -34,13 +54,9 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-//    kotlinOptions {
-//        jvmTarget = "11"
-//        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2.toString()
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_21
+//        targetCompatibility = JavaVersion.VERSION_21
 //    }
     buildFeatures {
         compose = true
@@ -48,6 +64,13 @@ android {
 }
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
+}
+kotlin {
+    compilerOptions {
+        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
+        // Optional: Set jvmTarget
+        // jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
 }
 dependencies {
 
